@@ -33,4 +33,10 @@ public class ShowtimeServiceImpl implements ShowtimeService {
     public void deleteShowtime(Long id) {
         showtimeRepository.deleteById(id);
     }
+
+    @Override
+    public List<Showtime> getShowtimesByMovie(Long movieId) {
+        return showtimeRepository.findByMovieId(movieId);
+    }
+
 }

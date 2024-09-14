@@ -8,4 +8,5 @@ public interface ShowtimeService {
     List<Showtime> getAllShowtimes();
     Showtime getShowtimeById(Long id);
     void deleteShowtime(Long id);
+    public List<Showtime> getShowtimesByMovie(Long movieId);
 }

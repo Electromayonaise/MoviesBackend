@@ -10,4 +10,6 @@ public interface ReservationService {
     Reservation createReservation(Long customerId, Long showtimeId, int seatCount);
 
     void cancelReservation(Long reservationId);
+
+    void cancelUserReservation(Long id, Long custumerId);
 }

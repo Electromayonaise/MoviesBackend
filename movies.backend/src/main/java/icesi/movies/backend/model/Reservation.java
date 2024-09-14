@@ -22,4 +22,9 @@ public class Reservation {
     @ManyToOne
     @JoinColumn(name = "showtime_id")
     private Showtime showtime;
+
+    // Helper method to get the customer ID
+    public Long getCustomerId() {
+        return customer != null ? customer.getId() : null;
+    }
 }

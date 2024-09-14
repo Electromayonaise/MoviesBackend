@@ -41,4 +41,17 @@ public class ReservationServiceImpl implements ReservationService {
     public void cancelReservation(Long reservationId) {
         reservationRepository.deleteById(reservationId);
     }
+
+    @Override
+    public void cancelUserReservation(Long id, Long customerId) {
+        Reservation reservation = reservationRepository.findById(id)
+            .orElseThrow(() -> new RuntimeException("Reservation not found"));
+
+        if (!reservation.getCustomerId().equals(customerId)) {
+            throw new RuntimeException("Unauthorized operation");
+        }
+
+        reservationRepository.deleteById(id);
+    }
+
 }
