@@ -39,4 +39,6 @@ public class ShowtimeServiceImpl implements ShowtimeService {
         return showtimeRepository.findByMovieId(movieId);
     }
 
+    
+
 }

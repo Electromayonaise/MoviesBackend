@@ -9,6 +9,7 @@ import icesi.movies.backend.repositories.ReservationRepository;
 import icesi.movies.backend.repositories.CustomerRepository;
 import icesi.movies.backend.repositories.ShowtimeRepository;
 import icesi.movies.backend.services.interfaces.ReservationService;
+import java.util.List;
 
 @Service
 public class ReservationServiceImpl implements ReservationService {
@@ -45,7 +46,7 @@ public class ReservationServiceImpl implements ReservationService {
     @Override
     public void cancelUserReservation(Long id, Long customerId) {
         Reservation reservation = reservationRepository.findById(id)
-            .orElseThrow(() -> new RuntimeException("Reservation not found"));
+                .orElseThrow(() -> new RuntimeException("Reservation not found"));
 
         if (!reservation.getCustomerId().equals(customerId)) {
             throw new RuntimeException("Unauthorized operation");
@@ -53,5 +54,13 @@ public class ReservationServiceImpl implements ReservationService {
 
         reservationRepository.deleteById(id);
     }
+
+    @Override
+    public List<Reservation> getUserReservations(Long customerId) {
+        Customer customer = customerRepository.findById(customerId)
+                .orElseThrow(() -> new RuntimeException("Customer not found"));
+        return reservationRepository.findByCustomer(customer);
+    }
+
 
 }

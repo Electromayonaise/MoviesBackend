@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import icesi.movies.backend.model.Reservation;
 import icesi.movies.backend.services.interfaces.ReservationService;
+import java.util.List;
 
 @RestController
 @RequestMapping("/reservations")
@@ -48,4 +49,12 @@ public class ReservationController {
         reservationService.cancelReservation(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
+
+    // ReservationController.java
+    @GetMapping("/user")
+    public ResponseEntity<List<Reservation>> getUserReservations(@RequestHeader Long customerId) {
+        List<Reservation> reservations = reservationService.getUserReservations(customerId);
+        return new ResponseEntity<>(reservations, HttpStatus.OK);
+    }
+
 }

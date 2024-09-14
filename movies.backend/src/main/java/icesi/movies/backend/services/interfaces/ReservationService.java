@@ -4,6 +4,8 @@ import org.springframework.stereotype.Service;
 
 import icesi.movies.backend.model.Reservation;
 
+import java.util.List;
+
 @Service
 public interface ReservationService {
     
@@ -12,4 +14,7 @@ public interface ReservationService {
     void cancelReservation(Long reservationId);
 
     void cancelUserReservation(Long id, Long custumerId);
+
+    List<Reservation> getUserReservations(Long customerId);
+
 }
