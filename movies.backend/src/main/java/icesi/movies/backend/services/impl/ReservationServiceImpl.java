@@ -62,5 +62,10 @@ public class ReservationServiceImpl implements ReservationService {
         return reservationRepository.findByCustomer(customer);
     }
 
+    @Override
+    public List<Reservation> getAllReservations() {
+        return reservationRepository.findAll(); 
+    }
+
 
 }

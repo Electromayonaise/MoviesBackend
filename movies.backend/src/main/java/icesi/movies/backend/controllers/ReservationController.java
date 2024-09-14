@@ -50,11 +50,17 @@ public class ReservationController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    // ReservationController.java
     @GetMapping("/user")
     public ResponseEntity<List<Reservation>> getUserReservations(@RequestHeader Long customerId) {
         List<Reservation> reservations = reservationService.getUserReservations(customerId);
         return new ResponseEntity<>(reservations, HttpStatus.OK);
     }
+
+    @GetMapping("/admin")
+    public List<Reservation> getAllReservations() {
+        return reservationService.getAllReservations();
+    }
+
+
 
 }
