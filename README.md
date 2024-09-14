@@ -33,8 +33,8 @@ This is the backend service for a movies reservation system, built using Spring 
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/yourusername/movies-backend.git
-   cd movies-backend
+   git clone https://github.com/Electromayonaise/MoviesBackend.git
+   cd MoviesBackend
    ```
 2. **Database Setup**
 
